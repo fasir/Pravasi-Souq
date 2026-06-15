@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Plus, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -12,21 +13,23 @@ function ProductCard({ product }) {
     <div className={cn('bg-gray-50', 'border', 'border-brand-charcoal/5', 'rounded-2xl', 'p-2', 'shadow-sm', 'hover:shadow-lg', 'hover:border-brand-gold/20', 'transition-all', 'duration-300', 'flex', 'flex-col', 'justify-between', 'group', 'relative', 'overflow-hidden')}>
       <div>
         {/* Product Image */}
-        <div className={cn('relative', 'aspect-square', 'w-full', 'rounded-xl', 'bg-brand-cream', 'overflow-hidden', 'mb-4', 'border', 'border-brand-charcoal/5')}>
-          <Image
-            src={imgSrc}
-            alt={product.name}
-            fill
-            className={cn('object-cover', 'group-hover:scale-105', 'transition-transform', 'duration-500')}
-            sizes="(max-w-sm) 100vw, 200px"
-            onError={() => setImgSrc("/budget_box.png")}
-          />
-          {product.badge && (
-            <span className={cn('absolute', 'top-2.5', 'left-2.5', 'bg-brand-gold', 'text-brand-charcoal', 'text-[10px]', 'font-semibold', 'px-2', 'py-0.5', 'rounded-md', 'uppercase', 'tracking-wider', 'shadow-sm')}>
-              {product.badge}
-            </span>
-          )}
-        </div>
+        <Link href={`/products/${product.id || 'grocery-harvest-mix-dry-fruits'}`} className="block">
+          <div className={cn('relative', 'aspect-square', 'w-full', 'rounded-xl', 'bg-brand-cream', 'overflow-hidden', 'mb-4', 'border', 'border-brand-charcoal/5')}>
+            <Image
+              src={imgSrc}
+              alt={product.name}
+              fill
+              className={cn('object-cover', 'group-hover:scale-105', 'transition-transform', 'duration-500')}
+              sizes="(max-w-sm) 100vw, 200px"
+              onError={() => setImgSrc("/budget_box.png")}
+            />
+            {product.badge && (
+              <span className={cn('absolute', 'top-2.5', 'left-2.5', 'bg-brand-gold', 'text-brand-charcoal', 'text-[10px]', 'font-semibold', 'px-2', 'py-0.5', 'rounded-md', 'uppercase', 'tracking-wider', 'shadow-sm')}>
+                {product.badge}
+              </span>
+            )}
+          </div>
+        </Link>
 
         {/* Brand & Stars */}
         <div className={cn('flex', 'items-center', 'justify-between', 'mb-1.5')}>
@@ -40,9 +43,11 @@ function ProductCard({ product }) {
         </div>
 
         {/* Title */}
-        <h4 className={cn('text-sm', 'font-bold', 'text-brand-charcoal', 'line-clamp-2', 'mb-2', 'group-hover:text-brand-primary', 'transition-colors', 'min-h-[40px]')}>
-          {product.name}
-        </h4>
+        <Link href={`/products/${product.id || 'grocery-harvest-mix-dry-fruits'}`} className="block">
+          <h4 className={cn('text-sm', 'font-bold', 'text-brand-charcoal', 'line-clamp-2', 'mb-2', 'group-hover:text-brand-primary', 'transition-colors', 'min-h-[40px]')}>
+            {product.name}
+          </h4>
+        </Link>
       </div>
 
       {/* Price & Action */}

@@ -139,7 +139,7 @@ function TopRatedProducts() {
                 <div className={cn('relative', 'aspect-square', 'w-full', 'rounded-2xl', 'bg-brand-cream', 'overflow-hidden', 'mb-4', 'border', 'border-brand-charcoal/5')}>
                   <SafeImage
                     src={product.image}
-                    alt={product.name}
+                    alt={product.name}Z
                     fill
                     className={cn('object-cover', 'group-hover:scale-105', 'transition-transform', 'duration-500')}
                     sizes="(max-w-sm) 100vw, 200px"

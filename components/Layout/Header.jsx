@@ -89,7 +89,7 @@ function Header() {
 
               {/* Cart Button */}
               <Link
-                href="#cart"
+                href="/cart"
                 className={cn('flex', 'items-center', 'gap-1.5', 'px-4', 'py-2', 'bg-[#A70B45]', 'hover:bg-white/15', 'rounded-full', 'transition-all')}
               >
                 <ShoppingBag className={cn('w-4', 'h-4')} />
@@ -159,7 +159,7 @@ function Header() {
 
               {/* Mobile Cart Shortcut (Mobile only) */}
               <Link
-                href="#cart"
+                href="/cart"
                 className={cn('md:hidden', 'p-2', 'text-brand-primary', 'bg-brand-primary/5', 'rounded-full', 'relative')}
                 aria-label="View Cart"
               >

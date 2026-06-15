@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Search, Star, ChevronDown, ChevronUp, Plus, SlidersHorizontal, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -434,29 +435,31 @@ function ProductListingPage() {
                 >
                   <div>
                     {/* Badges & Image */}
-                    <div className="relative aspect-square w-full rounded-2xl bg-brand-cream/80 overflow-hidden mb-3 border border-brand-charcoal/5">
-                      {/* Badges */}
-                      <div className="absolute top-2 left-2 z-10 flex flex-wrap gap-1">
-                        {product.isNew && (
-                          <span className="bg-[#00B0FF] text-white text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider shadow-xs">
-                            New Product
-                          </span>
-                        )}
-                        {product.isBestSeller && (
-                          <span className="bg-[#E30A5C] text-white text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider shadow-xs">
-                            Best Seller
-                          </span>
-                        )}
-                      </div>
+                    <Link href={`/products/${product.id}`} className="block">
+                      <div className="relative aspect-square w-full rounded-2xl bg-brand-cream/80 overflow-hidden mb-3 border border-brand-charcoal/5">
+                        {/* Badges */}
+                        <div className="absolute top-2 left-2 z-10 flex flex-wrap gap-1">
+                          {product.isNew && (
+                            <span className="bg-[#00B0FF] text-white text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider shadow-xs">
+                              New Product
+                            </span>
+                          )}
+                          {product.isBestSeller && (
+                            <span className="bg-[#E30A5C] text-white text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider shadow-xs">
+                              Best Seller
+                            </span>
+                          )}
+                        </div>
 
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                        sizes="(max-w-sm) 100vw, 200px"
-                      />
-                    </div>
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-w-sm) 100vw, 200px"
+                        />
+                      </div>
+                    </Link>
 
                     {/* Ratings */}
                     <div className="flex items-center gap-0.5 mb-1 text-[#FBC02D]">
@@ -466,9 +469,11 @@ function ProductListingPage() {
                     </div>
 
                     {/* Product Title */}
-                    <h4 className="text-xs sm:text-sm font-bold text-brand-charcoal line-clamp-2 mb-3.5 group-hover:text-brand-primary transition-colors min-h-[36px] leading-tight">
-                      {product.name}
-                    </h4>
+                    <Link href={`/products/${product.id}`} className="block">
+                      <h4 className="text-xs sm:text-sm font-bold text-brand-charcoal line-clamp-2 mb-3.5 group-hover:text-brand-primary transition-colors min-h-[36px] leading-tight">
+                        {product.name}
+                      </h4>
+                    </Link>
                   </div>
 
                   {/* Pricing, Stock Status & Add to Cart Button */}
