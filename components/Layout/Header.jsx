@@ -70,7 +70,7 @@ function Header() {
 
               {/* My Account Button */}
               <Link
-                href="#account"
+                href="/account"
                 className={cn('flex', 'items-center', 'gap-1.5', 'px-4', 'py-2', 'bg-[#A70B45]', 'hover:bg-white/15', 'rounded-full', 'transition-all')}
               >
                 <User className={cn('w-4', 'h-4')} />
@@ -80,7 +80,7 @@ function Header() {
 
               {/* Orders Button */}
               <Link
-                href="#orders"
+                href="/account?tab=orders"
                 className={cn('flex', 'items-center', 'gap-1.5', 'px-4', 'py-2', 'bg-[#A70B45]', 'hover:bg-white/15', 'rounded-full', 'transition-all')}
               >
                 <ClipboardList className={cn('w-4', 'h-4')} />
@@ -242,7 +242,9 @@ function Header() {
                 </a>
 
                 <div className={cn('grid', 'grid-cols-2', 'gap-4', 'text-xs', 'font-bold', 'text-brand-charcoal/60', 'text-center')}>
-                  <button className={cn('py-2', 'bg-brand-cream', 'rounded-lg')}>MY ACCOUNT</button>
+                  <Link href="/account" className="w-full" onClick={() => setIsOpen(false)}>
+                    <button className={cn('py-2', 'bg-brand-cream', 'rounded-lg', 'w-full')}>MY ACCOUNT</button>
+                  </Link>
                   <button className={cn('py-2', 'bg-brand-cream', 'rounded-lg')}>CURRENCY: SAR</button>
                 </div>
               </div>
